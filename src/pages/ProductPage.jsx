@@ -1,20 +1,18 @@
-import React from 'react';
+import React from "react";
 
-function ProductCard({ product }) {
+const ProductPage = ({ product }) => {
   return (
     <div>
-      <div>
-        <Header />
-        <h1>CatalogPage</h1>
+      <Header />
+      {/* <h1>one product page</h1>
         <div>
             <img src={product.imageUrl} alt={product.name} />
             <h3>{product.name}</h3>
             <p>${product.price}</p>
         </div>
-        <Footer />
-      </div>
+        <Footer /> */}
     </div>
   );
-}
+};
 
-export default ProductCard;
+export default ProductPage;
