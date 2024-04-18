@@ -113,7 +113,7 @@ function ProductCard() {
           >
             Add to cart
           </Button>
-          <Accordion>
+          <Accordion elevation={0}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1-content"
