@@ -8,6 +8,8 @@ import Sort from '../components/Sort';
 import MainTitle from '../components/MainTitle';
 import icono from '../assets/icono.svg';
 import axios from "axios";
+import { Link } from 'react-router-dom';
+
 
 
 export default function CataloguePage({ categoryFilter, setCategoryFilter }) {
@@ -82,13 +84,15 @@ export default function CataloguePage({ categoryFilter, setCategoryFilter }) {
               )
               .map((item) => (
                 <Grid item xs={12} sm={4} md={4} key={item.item_id}>
-                  <ItemCard
+                <Link to={`/product/${item.item_id}`} className="card">
+                <ItemCard
                     img={item.item_image_url}
                     name={item.item_name}
                     price={item.item_price}
                     category={item.item_category}
                     brand={item.item_brand}
                   />
+                </Link>
                 </Grid>
               ))}
           </Grid>
