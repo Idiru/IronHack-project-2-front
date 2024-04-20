@@ -48,7 +48,7 @@ function Footer() {
             <div className='sb_footer-below'>
                 <div className='sb_footer-copyright'>
                     <p>
-                        @{new Date().getFullYear()} CodeInn. All rights reserved.
+                        @{new Date().getFullYear()} VerdeVogue. All rights reserved.
                     </p>
                 </div>
                 <div className='sb_footer-below-links'>
