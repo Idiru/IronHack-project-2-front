@@ -8,31 +8,31 @@ import linked from '../assets/174857.png';
 function Footer() {
   return (
     <div className='footer'>
-        <div className='sb_footer section_padding'>
-            <div className='sb_footer-links'>
-                <div className='sb_footer-links_div'>
+        <div className='vV_footer section_padding'>
+            <div className='vV_footer-links'>
+                <div className='vV_footer-links_div'>
                     <h4>Page Arbo</h4>
                     <a href="page-arbo"><p>Page Arbo</p></a>
                 </div>
 
-                <div className='sb_footer-links_div'>
+                <div className='vV_footer-links_div'>
                     <h4>Resources</h4>
                     <a href="resources"><p>Resources</p></a>
                 </div>
 
-                <div className='sb_footer-links_div'>
+                <div className='vV_footer-links_div'>
                     <h4>Partners</h4>
                     <a href="partners"><p>Partners</p></a>
                 </div>
 
-                <div className='sb_footer-links_div'>
+                <div className='vV_footer-links_div'>
                     <h4>Contact</h4>
                     <a href="email"><p>Email</p></a>
                     <a href="phone"><p>Phone</p></a>
                     <a href="career"><p>Career</p></a>
                 </div>
 
-                <div className='sb_footer-links_div'>
+                <div className='vV_footer-links_div'>
                     <h4>Socialmedia Partners</h4>
                     <div className='socialmedia'>
                         <p><img src={fb} alt="" /></p>
@@ -45,13 +45,13 @@ function Footer() {
 
             <hr></hr>
 
-            <div className='sb_footer-below'>
-                <div className='sb_footer-copyright'>
+            <div className='vV_footer-below'>
+                <div className='vV_footer-copyright'>
                     <p>
                         @{new Date().getFullYear()} VerdeVogue. All rights reserved.
                     </p>
                 </div>
-                <div className='sb_footer-below-links'>
+                <div className='vV_footer-below-links'>
                     <a href="/terms"><div><p>Terms & Conditions</p></div></a>
                     <a href="/privacy"><div><p>Privacy</p></div></a>
                     <a href="/security"><div><p>Security</p></div></a>
