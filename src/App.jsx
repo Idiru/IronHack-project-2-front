@@ -1,7 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { useState, useEffect } from 'react';
+import { useLocation, BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Container from '@mui/material/Container';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import CataloguePage from './pages/CataloguePage';
+import ProductPage from './pages/ProductPage';
 import './App.css'
+// import CheckoutPage from './pages/CheckoutPage';
+// import PaymentPage from './pages/PaymentPage';
+// import ProfilePage from './pages/ProfilePage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -32,4 +42,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
