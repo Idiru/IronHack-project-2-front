@@ -157,6 +157,10 @@ function ProductCard() {
 
     </div>
   );
-}
+};
 
+<<<<<<< HEAD
 export default ProductCard;
+=======
+export default ProductPage;
+>>>>>>> CataloguePage
