@@ -1,7 +1,7 @@
 import React from 'react';
 import './Home.css';
 
-const Home = () => {
+function Home() {
   return (
     <div className='body-div'>
         

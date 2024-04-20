@@ -5,7 +5,7 @@ import ig from '../assets/IG.png';
 import twt from '../assets/twt.png';
 import linked from '../assets/174857.png';
 
-const Footer = () => {
+function Footer() {
   return (
     <div className='footer'>
         <div className='sb_footer section_padding'>
