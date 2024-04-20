@@ -12,12 +12,16 @@ h1, h2, h3, h4, h5, h6 {
   color: #222;
 }
 
+/* =======HEADER======= */
+.header {
+  padding: 10px 0;
+}
+
+
 /* =======PRODUCT PAGE======= */
 
 .container-product-page {
   position: relative;
-  padding-top: 30px;
-
 }
 
 .product-image {
@@ -71,8 +75,6 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center; 
     align-items: center;      
     flex-direction: column; 
-    padding-top: 50px;
-
   }
   
 

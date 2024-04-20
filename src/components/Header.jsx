@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 
 export default function Header({ setCategoryFilter }) {
   return (
-    <div>
+    <div className="header">
       <SearchBar />
       <Navbar setCategoryFilter={setCategoryFilter} />
     </div>

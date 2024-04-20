@@ -39,7 +39,7 @@ export default function Navbar({ categoryFilter, setCategoryFilter }) {
   };
 
   return (
-    <Box sx={{ width: "100%", bgcolor: "background.paper", position: 'relative' }}>
+    <Box sx={{ width: "100%", bgcolor: "background.paper", position: 'relative'}}>
 
     {isMobile ? (
       <Box sx={{ p: 1 }}>
