@@ -10,6 +10,8 @@ import { useState } from "react";
 import Sort from '../components/Sort';
 import { Typography } from "@mui/material";
 import MainTitle from '../components/MainTitle';
+import icono from '../assets/icono.svg';
+
 
 export default function CataloguePage({ categoryFilter, setCategoryFilter }) {
 
@@ -36,27 +38,11 @@ export default function CataloguePage({ categoryFilter, setCategoryFilter }) {
 
   return (
   <div>
-    <Typography
-      variant="h1"
-      sx={{
-        fontSize: {
-          xs: '1.5rem',  
-          sm: '2.5rem',  
-          md: '3rem',    
-        },
-        fontWeight: 700,                   
-        fontFamily: '"PT Sans Caption", sans-serif', 
-        opacity: 0.1,                      
-        textAlign: 'center',    
-        mt: 8,                                
-        '& span': {
-          color: 'primary.main',            
-        }}}>
 
-      <span>verde</span>COLLECTION
-  </Typography>
-    {/* <MainTitle><span>verde</span>COLLECTION</MainTitle> */}
-      
+<MainTitle>
+      <img src={icono} alt="Verde" style={{ width: 'auto', height: '1em', verticalAlign: 'bottom' }} />
+      COLLECTION
+    </MainTitle>      
     <Box sx={{ display: 'flex', justifyContent: 'flex-end', mr: 2 }}>
         <Sort onSortChange={handleSortChange} />
     </Box>

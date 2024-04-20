@@ -8,12 +8,14 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import TextField from "@mui/material/TextField";
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Typography from '@mui/material/Typography';
+import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
+import Typography from "@mui/material/Typography";
+import MainTitle from "../components/MainTitle";
+import icono from '../assets/icono.svg';
 
 function ProductCard() {
   const [products, setProducts] = useState([]);
@@ -23,8 +25,7 @@ function ProductCard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { id } = useParams();
-  const navigate = useNavigate(); 
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,12 +41,16 @@ function ProductCard() {
         );
         if (filteredProduct) {
           setProductData(filteredProduct);
-          
-          const filteredRecommendations = response.data.filter((item) => 
-            item.item_category === filteredProduct.item_category && item.item_id !== id
+
+          const filteredRecommendations = response.data.filter(
+            (item) =>
+              item.item_category === filteredProduct.item_category &&
+              item.item_id !== id
           );
           // Randomly pick up to 4 products from the filtered list
-          setRecommendedProducts(filteredRecommendations.sort(() => 0.5 - Math.random()).slice(0, 4));
+          setRecommendedProducts(
+            filteredRecommendations.sort(() => 0.5 - Math.random()).slice(0, 4)
+          );
         } else {
           setError("Product not found");
         }
@@ -58,7 +63,7 @@ function ProductCard() {
   }, [id]);
 
   const handleViewClick = (productId) => {
-    navigate(`/product/${productId}`); 
+    navigate(`/product/${productId}`);
   };
 
   if (loading) return <div>Loading...</div>;
@@ -74,12 +79,23 @@ function ProductCard() {
   };
 
   return (
-    <div className="container">
+    <div className="container-product-page">
+      <MainTitle>
+        <img
+          src={icono}
+          alt="Verde"
+          style={{ width: "auto", height: "1em", verticalAlign: "bottom" }}
+        />
+        Product
+      </MainTitle>
       <div className="product-container">
         <img
           className="product-image"
           src={productData.item_image_url}
           alt={productData.name}
+          sx={{
+            objectFit: "cover",
+          }}
         />
         <div className="content-container">
           <h1>{productData.item_name}</h1>
@@ -110,6 +126,7 @@ function ProductCard() {
             className="button"
             variant="contained"
             disabled={quantity === 0 || productData.item_stock === 0}
+            sx={{ backgroundColor: "#3D6C00", width: "150px" }}
           >
             Add to cart
           </Button>
@@ -125,42 +142,50 @@ function ProductCard() {
           </Accordion>
         </div>
       </div>
-
       <div className="recommendations">
-  <Typography variant="h6">You May Also Like</Typography>
-  <Grid className="container-recommendations" container spacing={2}>
-    {recommendedProducts.map((product) => (
-      <Grid item key={product.item_id} xs={12} sm={6} md={3}>
-        <Card>
-          <CardMedia
-            component="img"
-            height="140"
-            image={product.item_image_url}
-            alt={product.item_name}
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h6" component="div">
-              {product.item_name}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {product.item_description}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button className="hyperlink"  size="small" onClick={() => handleViewClick(product.item_id)}>View</Button>
-          </CardActions>
-        </Card>
-      </Grid>
-    ))}
-  </Grid>
-</div>
-
+        <hr />
+        <Typography variant="h4" sx={{ fontSize: "30px" }}>
+          You May Also Like
+        </Typography>
+        <Grid className="container-recommendations" container spacing={2}>
+          {recommendedProducts.map((product) => (
+            <Grid item key={product.item_id} xs={12} sm={6} md={3}>
+              <Card>
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={product.item_image_url}
+                  alt={product.item_name}
+                />
+                <CardContent>
+                  <Typography
+                    gutterBottom
+                    variant="h6"
+                    sx={{ fontSize: "20px" }}
+                    component="div"
+                  >
+                    {product.item_name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {product.item_description}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button
+                    className="hyperlink"
+                    size="small"
+                    onClick={() => handleViewClick(product.item_id)}
+                  >
+                    View
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </div>
     </div>
   );
-};
+}
 
-<<<<<<< HEAD
 export default ProductCard;
-=======
-export default ProductPage;
->>>>>>> CataloguePage
