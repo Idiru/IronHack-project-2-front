@@ -1,7 +1,6 @@
-//Header.jsx
 import React from "react";
-import SearchBar from "./SearchBar";
 import Navbar from "./Navbar";
+import SearchBar from "./SearchBar";
 
 export default function Header({ setCategoryFilter }) {
   return (

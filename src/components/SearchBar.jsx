@@ -22,9 +22,6 @@ import { Divider } from "@mui/material";
 import { Link } from "react-router-dom";
 import icono from '../assets/icono.svg'; 
 
-
-
-
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
