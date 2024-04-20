@@ -1,21 +1,22 @@
 //CataloguePage.jsx
 import * as React from "react";
-import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import theme from "../theme";
 import Grid from "@mui/material/Grid";
 import ItemCard from "../components/ItemCard";
-import data from "../data.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Sort from '../components/Sort';
-import { Typography } from "@mui/material";
 import MainTitle from '../components/MainTitle';
 import icono from '../assets/icono.svg';
+import axios from "axios";
 
 
 export default function CataloguePage({ categoryFilter, setCategoryFilter }) {
 
-  const [sortedData, setSortedData] = useState(data.sort((a, b) => a.item_name.localeCompare(b.item_name))); // Default sort
+  const [products, setProducts] = useState([]);
+  const [sortedData, setSortedData] = useState(products.sort((a, b) => a.item_name.localeCompare(b.item_name))); 
+  const [productData, setProductData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const handleSortChange = (sortOption) => {
     const sorted = [...sortedData].sort((a, b) => {
@@ -35,6 +36,25 @@ export default function CataloguePage({ categoryFilter, setCategoryFilter }) {
     });
     setSortedData(sorted);
   };
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("https://ironhack-project-2-api.adaptable.app/products");
+        setProducts(response.data);
+        setSortedData(response.data.sort((a, b) => a.item_name.localeCompare(b.item_name)));
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+  
+
+  
 
   return (
   <div>

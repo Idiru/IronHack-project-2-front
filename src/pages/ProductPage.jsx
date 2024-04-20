@@ -47,7 +47,6 @@ function ProductCard() {
               item.item_category === filteredProduct.item_category &&
               item.item_id !== id
           );
-          // Randomly pick up to 4 products from the filtered list
           setRecommendedProducts(
             filteredRecommendations.sort(() => 0.5 - Math.random()).slice(0, 4)
           );
@@ -93,9 +92,6 @@ function ProductCard() {
           className="product-image"
           src={productData.item_image_url}
           alt={productData.name}
-          sx={{
-            objectFit: "cover",
-          }}
         />
         <div className="content-container">
           <h1>{productData.item_name}</h1>
