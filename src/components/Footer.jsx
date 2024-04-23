@@ -1,4 +1,3 @@
-import React from 'react';
 import './Footer.css';
 import fb from '../assets/FB.png';
 import ig from '../assets/IG.png';
