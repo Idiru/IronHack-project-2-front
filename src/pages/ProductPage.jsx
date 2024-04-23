@@ -16,6 +16,8 @@ import CardActions from "@mui/material/CardActions";
 import Typography from "@mui/material/Typography";
 import MainTitle from "../components/MainTitle";
 import icono from '../assets/icono.svg';
+import { addToCart } from '../components/CartContext'; // Assurez-vous que le chemin d'importation est correct
+
 
 function ProductCard() {
   const [products, setProducts] = useState([]);
@@ -26,6 +28,7 @@ function ProductCard() {
   const [error, setError] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -123,6 +126,7 @@ function ProductCard() {
             variant="contained"
             disabled={quantity === 0 || productData.item_stock === 0}
             sx={{ backgroundColor: "#3D6C00", width: "150px" }}
+            onClick={() => addToCart(productData)}
           >
             Add to cart
           </Button>

@@ -17,6 +17,7 @@ function App() {
   const location = useLocation();
   const [categoryFilter, setCategoryFilter] = useState('all');
 
+
   useEffect(() => {
     if (!['/catalogue', '/product'].includes(location.pathname)) {
       setCategoryFilter('all');
@@ -26,7 +27,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container sx={{ maxWidth: 'lg', mx: 'auto' }}>
-        <Header setCategoryFilter={setCategoryFilter} />
+        <Header  setCategoryFilter={setCategoryFilter} />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/catalogue" element={<CataloguePage categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} />} />

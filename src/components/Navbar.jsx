@@ -11,7 +11,7 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 
-export default function Navbar({ categoryFilter, setCategoryFilter }) {
+export default function Navbar({ setCategoryFilter }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [value, setValue] = React.useState("all");
@@ -19,6 +19,7 @@ export default function Navbar({ categoryFilter, setCategoryFilter }) {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
 
   useEffect(() => {
     // Reset filter when the pathname is not '/catalogue'
