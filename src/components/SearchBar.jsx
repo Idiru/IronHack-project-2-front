@@ -23,7 +23,7 @@ export default function SearchBar() {
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  const { cart } = useCart(); 
+  const { cart } = useCart();
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -90,10 +90,14 @@ export default function SearchBar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton>
-          <ShoppingBagOutlinedIcon />
-        </IconButton>
-        Cart
+        <Link to="/cart">
+          <IconButton>
+            <Badge badgeContent={cart.length} color="primary">
+              <ShoppingBagOutlinedIcon />
+            </Badge>
+          </IconButton>
+          Cart
+        </Link>
       </MenuItem>
 
       <MenuItem onClick={handleProfileMenuOpen}>
