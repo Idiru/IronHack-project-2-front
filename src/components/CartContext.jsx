@@ -1,18 +1,27 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 //We create a "cart context" to use it everywhere in the app into children components 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(()=> {
+    const savedCart = localStorage.getItem('cart'); //We store the cart inside the local strorage to avoid to lose it
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  useEffect(() => {
+    // We store the cart everytime it changes 
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
+
+  
 
   //The function to allow you to add something in your cart
-  const addToCart = (item, quantity) => {
+  const addToCart = (item, quantity) => { //take the item and the quantity added 
     setCart((prevCart) => {
-        // Trouver si l'article est déjà dans le panier
-        const existingItemIndex = prevCart.findIndex(cartItem => cartItem.item_id === item.item_id);
+        const existingItemIndex = prevCart.findIndex(cartItem => cartItem.item_id === item.item_id); //Check if the item already exists
         if (existingItemIndex >= 0) {
-          // Si l'article est déjà dans le panier, incrémenter seulement la quantité
+          //If it exists we only add the quantity
           const updatedCart = [...prevCart];
           updatedCart[existingItemIndex] = {
             ...updatedCart[existingItemIndex],
@@ -20,7 +29,7 @@ export function CartProvider({ children }) {
           };
           return updatedCart;
         } else {
-          // Ajouter un nouvel article avec une quantité initiale de 1
+          //If not we add it completely to the cart 
           return [...prevCart, { ...item, quantityProduct: quantity }];
         }
       });

@@ -1,68 +1,21 @@
 //components/SeachBar
 
 import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import NotificationsIcon from "@mui/icons-material/Notifications";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import { Divider } from "@mui/material";
 import { Link } from "react-router-dom";
-import icono from '../assets/icono.svg'; 
-import { useCart } from '../components/CartContext';
-
-
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(3),
-    width: "auto",
-  },
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "20ch",
-    },
-  },
-}));
+import icono from "../assets/icono.svg";
+import { useCart } from "../components/CartContext";
 
 export default function SearchBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -70,8 +23,7 @@ export default function SearchBar() {
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  const { cart } = useCart(); // Accès à addToCart via le contexte
-
+  const { cart } = useCart(); 
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -98,7 +50,6 @@ export default function SearchBar() {
       anchorOrigin={{
         vertical: "bottom",
         horizontal: "right",
-        
       }}
       id={menuId}
       keepMounted
@@ -111,10 +62,10 @@ export default function SearchBar() {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-      <Divider/>
+      <Divider />
       <MenuItem onClick={handleMenuClose}>Wishlist</MenuItem>
       <MenuItem onClick={handleMenuClose}>Purchases</MenuItem>
-      <Divider/>
+      <Divider />
       <MenuItem onClick={handleMenuClose}>Help</MenuItem>
       <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
     </Menu>
@@ -176,8 +127,9 @@ export default function SearchBar() {
               size="small"
               color="inherit"
               aria-label="home"
-              sx={{ color: "common.black", width: '48px' }} >
-              <Link to="/" >
+              sx={{ color: "common.black", width: "48px" }}
+            >
+              <Link to="/">
                 <img src={icono} alt="Home" />
               </Link>
             </IconButton>
@@ -187,29 +139,33 @@ export default function SearchBar() {
           <Typography
             sx={{
               flexGrow: 1,
-              display: 'flex',
-              justifyContent: 'center', 
-              alignItems: 'center',     
-              fontFamily: 'PT Sans Caption, sans-serif',
-              fontWeight: 'bold',       
-              fontSize: '1.5rem',       
-              color: 'black',           
-              '& span': {
-                color: 'green',         
-          }}}>
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              fontFamily: "PT Sans Caption, sans-serif",
+              fontWeight: "bold",
+              fontSize: "1.5rem",
+              color: "black",
+              "& span": {
+                color: "green",
+              },
+            }}
+          >
             <span>verde</span>Vogue
           </Typography>
 
           {/* Right Section: Cart & User */}
-          <Box sx={{ display: { xs: "none", md: "flex"  } }}>
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
               aria-label="show 2 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={cart.length} color="primary">
-                <ShoppingBagOutlinedIcon fontSize="medium" />
-              </Badge>
+              <Link to="cart">
+                <Badge badgeContent={cart.length} color="primary">
+                  <ShoppingBagOutlinedIcon fontSize="medium" />
+                </Badge>
+              </Link>
             </IconButton>
 
             <IconButton
@@ -221,7 +177,7 @@ export default function SearchBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircleOutlinedIcon sx={{ width: '40px'}} />
+              <AccountCircleOutlinedIcon sx={{ width: "40px" }} />
             </IconButton>
           </Box>
 

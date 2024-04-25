@@ -8,6 +8,8 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import CataloguePage from './pages/CataloguePage';
 import ProductPage from './pages/ProductPage';
+import CartPage from './pages/CartPage';
+
 import './App.css'
 // import CheckoutPage from './pages/CheckoutPage';
 // import PaymentPage from './pages/PaymentPage';
@@ -32,6 +34,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/catalogue" element={<CataloguePage categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} />} />
           <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/cart" element={<CartPage />} />
+
           {/* <Route path="/checkout" element={<CheckoutPage />} /> */}
           {/* <Route path="/payment" element={<PaymentPage />} /> */}
           {/* <Route path="/profile" element={<ProfilePage />} /> */}

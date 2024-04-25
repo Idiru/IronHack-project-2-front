@@ -121,7 +121,6 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
-
 body {
   background-color: #fefefe;
 }
@@ -136,4 +135,40 @@ body {
   height: 18rem;
   object-fit: cover;
   background-position: center;
+}
+
+/* =======CART PAGE======= */
+
+.container-cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.cart-item {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.cart-item img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+
+}
+
+.content-cart-item{
+  width: 40%;
+}
+
+.cart-item-name {
+  font-weight: bold;
+}
+
+.cart-divider {
+  margin: 30px auto;
+  width: 500px;
 }
