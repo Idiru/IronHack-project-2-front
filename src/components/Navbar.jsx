@@ -11,6 +11,7 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 
+
 export default function Navbar({ setCategoryFilter }) {
   const navigate = useNavigate();
   const location = useLocation();

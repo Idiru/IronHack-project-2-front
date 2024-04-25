@@ -15,9 +15,8 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Typography from "@mui/material/Typography";
 import MainTitle from "../components/MainTitle";
-import icono from '../assets/icono.svg';
-import { addToCart } from '../components/CartContext'; // Assurez-vous que le chemin d'importation est correct
-
+import icono from "../assets/icono.svg";
+import { useCart } from "../components/CartContext";
 
 function ProductCard() {
   const [products, setProducts] = useState([]);
@@ -28,7 +27,7 @@ function ProductCard() {
   const [error, setError] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
-
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -102,9 +101,10 @@ function ProductCard() {
           <p>{productData.item_price}</p>
           <div className="size-container">
             <ul>
-              {productData.item_size.map((size, index) => (
-                <li key={index}>{size}</li>
-              ))}
+              {productData.item_size.length > 0 &&
+                productData.item_size.map((size, index) => (
+                  <li key={index}>{size}</li>
+                ))}
             </ul>
           </div>
           <div>
@@ -126,7 +126,7 @@ function ProductCard() {
             variant="contained"
             disabled={quantity === 0 || productData.item_stock === 0}
             sx={{ backgroundColor: "#3D6C00", width: "150px" }}
-            onClick={() => addToCart(productData)}
+            onClick={() => addToCart(productData, quantity)}
           >
             Add to cart
           </Button>

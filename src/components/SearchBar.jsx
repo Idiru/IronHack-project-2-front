@@ -21,6 +21,8 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import { Divider } from "@mui/material";
 import { Link } from "react-router-dom";
 import icono from '../assets/icono.svg'; 
+import { useCart } from '../components/CartContext';
+
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -68,6 +70,8 @@ export default function SearchBar() {
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const { cart } = useCart(); // Accès à addToCart via le contexte
+
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -203,7 +207,7 @@ export default function SearchBar() {
               aria-label="show 2 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={2} color="primary">
+              <Badge badgeContent={cart.length} color="primary">
                 <ShoppingBagOutlinedIcon fontSize="medium" />
               </Badge>
             </IconButton>
