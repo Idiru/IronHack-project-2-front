@@ -10,11 +10,11 @@ export default function CartItem() {
     <div className="container-cart-list">
     {cart.map((product)=> {
       return (
-        <div key={product.item_id} className="cart-item">
+        <div key={product.item_uuid} className="cart-item">
         <img src={product.item_image_url} alt="item-image" />
         <div className="content-cart-item">
           <p className="cart-item-name">{product.item_name}</p>
-          <p>{product.item_price} x {product.quantityProduct}</p>
+          <p>{product.item_price}</p>
         </div>
       </div>
       )

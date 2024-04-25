@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { v4 as uuidv4 } from 'uuid'; // Importe la fonction v4 et la renomme en uuidv4
+
 
 //We create a "cart context" to use it everywhere in the app into children components
 const CartContext = createContext();
@@ -19,7 +21,7 @@ export function CartProvider({ children }) {
     setCart((prevCart) => {
       const newCart = [...prevCart]; 
       for (let i = 0; i < quantity; i++) { //Add an object for each quantity
-        newCart.push({ ...item }); 
+        newCart.push({ ...item, item_uuid: uuidv4()}); 
       }
       return newCart;
     });
