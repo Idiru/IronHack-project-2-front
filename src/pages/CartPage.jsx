@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 export default function CartPage() {
   const { cart } = useCart();
 
+  console.log(cart)
+
   const total = cart.reduce((acc, item) => {
     const price = parseFloat(
       item.item_price.replace("€", "").replace(",", ".")
