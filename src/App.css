@@ -149,6 +149,10 @@ body {
   padding: 20px;
 }
 
+.content-cart-item p {
+  padding-top: 5px;
+}
+
 .cart-item img {
   width: 200px;
   height: 150px;
@@ -166,12 +170,30 @@ body {
 
 .cart-divider {
   margin: 30px auto;
-  width: 500px;
+  width: 65%;
 }
 
 .cart-container-total {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
   justify-content: center;
   align-items: center;
-  padding: 0 0 30px 0;
+  padding: 30px 0 0 0;
+}
+
+.remove-button {
+  all: unset;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 10px 0 0 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  text-decoration: underline;
+}
+
+.empty-cart {
+  text-align: center;
 }

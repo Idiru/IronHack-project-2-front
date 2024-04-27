@@ -2,6 +2,9 @@ import MainTitle from "../components/MainTitle";
 import CartList from "../components/CartList";
 import icono from "../assets/icono.svg";
 import { useCart } from "../components/CartContext";
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
+
 
 export default function CartPage() {
   const { cart } = useCart();
@@ -13,7 +16,6 @@ export default function CartPage() {
     return acc + price;
   }, 0);
 
-  console.log(total);
 
   return (
     <div>
@@ -33,6 +35,15 @@ export default function CartPage() {
             <span className="total">Total: </span>
             €{total}
           </p>
+          <Link to="/checkout">
+          <Button
+            className="button"
+            variant="contained"
+            sx={{ backgroundColor: "#3D6C00", width: "150px" }}
+          >
+            Checkout
+          </Button>
+          </Link>
         </div>
       </div>
     </div>

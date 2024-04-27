@@ -98,14 +98,14 @@ function ProductCard() {
           <h1>{productData.item_name}</h1>
           <p>{productData.item_description}</p>
           <p>{productData.item_price}</p>
-          <div className="size-container">
+         {/*  <div className="size-container">
             <ul>
               {productData.item_size.length > 0 &&
                 productData.item_size.map((size, index) => (
                   <li key={index}>{size}</li>
                 ))}
             </ul>
-          </div>
+          </div> */}
           <div>
             <TextField
               className="quantity-picker"

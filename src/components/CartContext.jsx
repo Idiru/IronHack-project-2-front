@@ -32,8 +32,15 @@ export function CartProvider({ children }) {
     0
   );
 
+  const removeItem = (itemId) => {
+    const filteredItems = cart.filter(item => item.item_uuid !== itemId)
+    setCart(filteredItems)
+    console.log("Item removed")
+    console.log(cart)
+  }
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, cartCount }}>
+    <CartContext.Provider value={{ cart, addToCart, cartCount, removeItem }}>
       {children}
     </CartContext.Provider>
   );
