@@ -155,7 +155,7 @@ export default function SearchBar() {
               },
             }}
           >
-            <span>verde</span>Vogue
+            <Link to="/"><div className="logo"><span>verde</span>Vogue</div></Link>
           </Typography>
 
           {/* Right Section: Cart & User */}

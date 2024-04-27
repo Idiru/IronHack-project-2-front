@@ -27,6 +27,10 @@ h6 {
   padding: 10px 0;
 }
 
+.logo {
+  font-weight: bold;
+}
+
 /* =======PRODUCT PAGE======= */
 
 .container-product-page {
