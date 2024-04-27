@@ -35,8 +35,6 @@ export function CartProvider({ children }) {
   const removeItem = (itemId) => {
     const filteredItems = cart.filter(item => item.item_uuid !== itemId)
     setCart(filteredItems)
-    console.log("Item removed")
-    console.log(cart)
   }
 
   return (

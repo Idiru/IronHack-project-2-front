@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import CataloguePage from './pages/CataloguePage';
 import ProductPage from './pages/ProductPage';
-import CartPage from './pages/ProductPage';
+import CartPage from './pages/CartPage';
 
 import './App.css'
 // import CheckoutPage from './pages/CheckoutPage';
