@@ -8,14 +8,18 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import CataloguePage from './pages/CataloguePage';
 import ProductPage from './pages/ProductPage';
+import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
+
 import './App.css'
-// import CheckoutPage from './pages/CheckoutPage';
+
 // import PaymentPage from './pages/PaymentPage';
 // import ProfilePage from './pages/ProfilePage';
 
 function App() {
   const location = useLocation();
   const [categoryFilter, setCategoryFilter] = useState('all');
+
 
   useEffect(() => {
     if (!['/catalogue', '/product'].includes(location.pathname)) {
@@ -26,12 +30,14 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container sx={{ maxWidth: 'lg', mx: 'auto' }}>
-        <Header setCategoryFilter={setCategoryFilter} />
+        <Header  setCategoryFilter={setCategoryFilter} />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/catalogue" element={<CataloguePage categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} />} />
           <Route path="/product/:id" element={<ProductPage />} />
-          {/* <Route path="/checkout" element={<CheckoutPage />} /> */}
+          <Route path="/cart" element={<CartPage />} />
+
+          <Route path="/checkout" element={<CheckoutPage />} /> 
           {/* <Route path="/payment" element={<PaymentPage />} /> */}
           {/* <Route path="/profile" element={<ProfilePage />} /> */}
         </Routes>
