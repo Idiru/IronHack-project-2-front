@@ -202,7 +202,8 @@ body {
 .empty-cart {
   text-align: center;
 }
-=======
+
+
 /* ---HOME-PAGE--- */
 .grid-container {
   display: flex;
@@ -354,4 +355,3 @@ body {
     color: #294800; 
   }
 }
->>>>>>> HomePage
