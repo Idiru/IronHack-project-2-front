@@ -1,101 +1,109 @@
 import React from "react";
 import { useCart } from "../components/CartContext";
+import Button from "@mui/material/Button";
 
 function CheckoutPage() {
-
-  const { cart, addToCart, cartCount, removeItem } = useCart()
+  const { cart, total } = useCart();
 
   return (
-    <div>
-      <div>
-        <h1>
-            { cart.map(item => {
-            console.log(item)
-            return <div>{item.item_name}</div>
-          })} 
-          </h1>
-
-<div className="row">
-
-<div className="col-md-7">
-    <div className="card">
-        <div className="card-header">
-            <h4>Basic Information</h4>
+    <div className="checkout-container">
+    <div className="checkout-container-content"> 
+      <div className="checkout-image"></div>
+      <div className="checkout-items-container">
+        <div className="items">
+          <h2>In your verdeCART</h2>
+          <div>
+            {cart.map((item) => {
+              console.log(item);
+              return (
+                <div className="item-line">
+                  <p>{item.item_name}</p>
+                  <p className="price">{item.item_price}</p>
+                </div>
+              );
+            })}
+          </div>
+          <hr />
+          <div className="vat-line">
+            <p>VAT</p>
+            <p className="price">€{total * 0.2}</p>
+          </div>
+          <hr />
+          <div className="total-line">
+            <p>TOTAL</p>
+            <p className="price">€{total * 1.2}</p>
+          </div>
         </div>
-        <div className="card-body">
-
-            <div className="row">
-                <div className="col-md-6">
-                    <div className="form-group mb-3">
-                        <label> First Name</label>
-                        <input type="text" name="firstname" className="form-control" />
-                        
-                    </div>
-                </div>
-                <div className="col-md-6">
-                    <div className="form-group mb-3">
-                        <label> Last Name</label>
-                        <input type="text" name="lastname" className="form-control" />
-                        
-                    </div>
-                </div>
-                <div className="col-md-6">
-                    <div className="form-group mb-3">
-                        <label> Phone Number</label>
-                        <input type="phonenumber" name="phonenumber"  className="form-control" />
-                        
-                    </div>
-                </div>
-                <div className="col-md-6">
-                    <div className="form-group mb-3">
-                        <label> Email Address</label>
-                        <input type="email" name="email"  className="form-control" />
-                        
-                    </div>
-                </div>
-                <div className="col-md-12">
-                    <div className="form-group mb-3">
-                        <label> Full Address</label>
-                        <textarea rows="3" name="address" className="form-control"></textarea>
-                        
-                    </div>
-                </div>
-                <div className="col-md-4">
-                    <div className="form-group mb-3">
-                        <label>City</label>
-                        <input type="text" name="city" className="form-control" />
-                        
-                    </div>
-                </div>
-                <div className="col-md-4">
-                    <div className="form-group mb-3">
-                        <label>State</label>
-                        <input type="text" name="state" className="form-control" />
-                        
-                    </div>
-                </div>
-                <div className="col-md-4">
-                    <div className="form-group mb-3">
-                        <label>Zip Code</label>
-                        <input type="text" name="zipcode" className="form-control" />
-                        
-                    </div>
-                </div>
-                <div className="col-md-12">
-                    <div className="form-group text-end">
-                        <button type="button" className="btn btn-primary mx-1" onClick={ (e) => submitOrder(e, 'cod') }>Place Order</button>
-                        <button type="button" className="btn btn-primary mx-1" onClick={ (e) => submitOrder(e, 'razorpay') }>Pay by Razorpay</button>
-                        <button type="button" className="btn btn-warning mx-1" onClick={ (e) => submitOrder(e, 'payonline') }>Pay Online</button>
-
-                    </div>
-                </div>
+        <div className="checkout-form-container">
+          <form>
+            <div>
+              <label for="card-holder">Card Holder:</label>
+              <br />
+              <input
+                type="text"
+                id="card-holder"
+                name="cardholder"
+                placeholder="Name on card"
+                required
+              />
             </div>
-
+            <div>
+              <label  for="card-number">Card Number:</label>
+              <br />
+              <input
+                type="text"
+                id="card-number"
+                name="cardnumber"
+                pattern="\d*"
+                minlength="16"
+                maxlength="16"
+                placeholder="1111 2222 3333 4444"
+                required
+                className="number-input"
+              />
+            </div>
+            <div className="container-expiration-cvc">
+              <div>
+                <label for="expiration-date">Expiration Date:</label>
+                <br />
+                <input
+                  type="text"
+                  id="expiration-date"
+                  name="expirationdate"
+                  placeholder="MM/YY"
+                  required
+                  className="date-input"
+                />
+              </div>
+              <div>
+                <label for="cvc">CVC:</label>
+                <br />
+                <input
+                  className="cvc-input"
+                  type="text"
+                  id="cvc"
+                  name="cvc"
+                  pattern="\d*"
+                  minlength="3"
+                  maxlength="4"
+                  placeholder="123"
+                  required
+                />
+              </div>
+            </div>
+            <div className="container-button">
+              <Button
+                className="button"
+                variant="contained"
+                sx={{ backgroundColor: "#3D6C00", width: "150px" }}
+              >
+                Checkout
+              </Button>
+            </div>
+          </form>
         </div>
-    </div>
-    </div>
-    </div>         
-    </div>
+      </div>
+      </div>
     </div>
   );
 }

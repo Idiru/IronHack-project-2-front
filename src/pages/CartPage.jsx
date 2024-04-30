@@ -7,15 +7,11 @@ import { Link } from "react-router-dom";
 
 
 export default function CartPage() {
-  const { cart } = useCart();
+  const { cart, total } = useCart();
 
-  const total = cart.reduce((acc, item) => {
-    const price = parseFloat(
-      item.item_price.replace("€", "").replace(",", ".")
-    ); //We should update the json to use only numbers
-    return acc + price;
-  }, 0);
+  
 
+  console.log(cart)
 
   return (
     <div>
@@ -30,7 +26,7 @@ export default function CartPage() {
       <div className="cart-container">
         <CartList />
         <hr className="cart-divider" />
-        <div className="cart-container-total">
+       { total == 0 ? "": <div className="cart-container-total">
           <p>
             <span className="total">Total: </span>
             €{total}
@@ -39,12 +35,13 @@ export default function CartPage() {
           <Button
             className="button"
             variant="contained"
+            type="submit"
             sx={{ backgroundColor: "#3D6C00", width: "150px" }}
           >
             Checkout
           </Button>
           </Link>
-        </div>
+        </div>}
       </div>
     </div>
   );
