@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import CataloguePage from './pages/CataloguePage';
 import ProductPage from './pages/ProductPage';
+import CheckoutPage from './pages/CheckoutPage';
 import CartPage from './pages/CartPage';
 
 import './App.css'
@@ -35,8 +36,8 @@ function App() {
           <Route path="/catalogue" element={<CataloguePage categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} />} />
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/cart" element={<CartPage />} />
-
-          {/* <Route path="/checkout" element={<CheckoutPage />} /> */}
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/checkout" element={<div>404</div>} />
           {/* <Route path="/payment" element={<PaymentPage />} /> */}
           {/* <Route path="/profile" element={<ProfilePage />} /> */}
         </Routes>
