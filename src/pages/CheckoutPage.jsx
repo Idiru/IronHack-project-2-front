@@ -4,7 +4,9 @@ function CheckoutPage() {
   return (
     <div>
       <div>
-        <h1>CheckoutPage</h1>
+        <h1>
+          Beginning of Checkout
+        </h1>
       </div>
     </div>
   );
