@@ -273,8 +273,8 @@ body {
 }
 .ticker-text  {
   display: inline-block;
-  padding: 1% 1% 1% 100%;
-  animation: ticker 15s linear infinite;
+  padding: 1% 1% 1% 40%;
+  animation: ticker 10s linear infinite;
   will-change: transform;
 }
 .discount-ticker .ticker-text a {
