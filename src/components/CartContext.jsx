@@ -37,8 +37,15 @@ export function CartProvider({ children }) {
     setCart(filteredItems)
   }
 
+  const total = cart.reduce((acc, item) => {
+    const price = parseFloat(
+      item.item_price.replace("€", "").replace(",", ".")
+    ); //We should update the json to use only numbers
+    return acc + price;
+  }, 0);
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, cartCount, removeItem }}>
+    <CartContext.Provider value={{ cart, addToCart, cartCount, removeItem, total }}>
       {children}
     </CartContext.Provider>
   );
