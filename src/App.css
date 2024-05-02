@@ -363,7 +363,7 @@ body {
   padding: 30px;
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: 700px;
   border: solid 1px #9dc963;
   border-radius: 20px;
   
@@ -381,10 +381,12 @@ body {
 .items h2 {
   font-size: 18px;
   padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 .checkout-image {
   width: 400px;
+  height: 45%;
   background-image: url(/src/assets/FrontCard-noFrame.png);
   background-size: cover;
   border: solid 1px #9dc963;
@@ -471,7 +473,7 @@ input {
   }
 
   .checkout-container {
-    height: 90vh;
+    height: 950px;
   }
 
   .checkout-image {
