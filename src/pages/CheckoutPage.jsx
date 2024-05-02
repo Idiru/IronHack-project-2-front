@@ -31,7 +31,7 @@ function CheckoutPage() {
             <hr />
             <div className="total-line">
               <p>TOTAL</p>
-              <p className="price">€{total * 1.2}</p>
+              <p className="price">€{(total * 1.2).toFixed(2)}</p>
             </div>
           </div>
       </div>
